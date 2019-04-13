@@ -6,4 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REDISCLOUD_URL'] %>
+  url: redis://redistogo:1fcf772182f61c0420d42c959c620adb@dory.redistogo.com:11861/
