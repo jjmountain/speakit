@@ -18,7 +18,7 @@
             </div>
             <div class="student-show-row-item student-show-row-complete">
               <% if trial.completed %>
-                Round complete
+                Conversation complete
               <% else %>
                 <%= link_to 'Start round'.html_safe, lesson_time_trial_path(@lesson, trial)%>
               <% end %>
@@ -31,6 +31,7 @@
               <% end %>
             </div>
           </div>
+          <%= render 'layouts/time_trial_mistakes', student: @student %>
         <% end %>
       </div>
     </div>
