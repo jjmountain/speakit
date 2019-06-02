@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'interested_users/create'
+  get 'pages/thank_you'
   mount ActionCable.server => "/cable"
   devise_for :teachers
   devise_for :students
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
     resources :attendances, only: [ :create ]
     resources :time_trials, only: [ :create, :show, :update ]
     resources :students, only: [ :show ]
+    resources :homeworks, only: [ :index ]
   end
   resources :time_trials, only: [ :index ] do
     resources :mistakes, only: [ :create ]
@@ -28,6 +31,8 @@ Rails.application.routes.draw do
       post 'unattend'
     end
   end
+
+  resources :interested_users, only: [ :create ]
 
   resources :homeworks, only: [ :update ]
 end

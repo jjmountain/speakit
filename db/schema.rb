@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_060142) do
+ActiveRecord::Schema.define(version: 2019_06_02_015336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_060142) do
     t.boolean "completed", default: false
     t.index ["mistake_id"], name: "index_homeworks_on_mistake_id"
     t.index ["student_id"], name: "index_homeworks_on_student_id"
+  end
+
+  create_table "interested_users", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lessons", force: :cascade do |t|

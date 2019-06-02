@@ -3,7 +3,7 @@
 .banner {
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('chalkboard.jpg');
     color: white;
-    height:65vh;
+    height: 50vh;
     /* if you have a 70px navbar => height: calc(100vh - 70px); */
     background-size: cover;
     background-repeat: no-repeat;
@@ -93,7 +93,6 @@
   .banner {
     padding-left:20px;
     h2 {
-      margin-top:60px;
       font-size:24px;
       padding-left:6px;
       text-align:left;

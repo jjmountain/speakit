@@ -1,5 +1,5 @@
 <div style="background-color: #F8F8FF;">
-  <% @lesson.student_time_trials(student).each_with_index do | trial, index | %>
+  <% @lesson.student_time_trials(current_student).each_with_index do | trial, index | %>
     <% if trial.completed %>
       <% trial.mistakes.each_with_index do | mistake, index | %>
         <div class="mistake-row">
@@ -12,53 +12,6 @@
               <p>at <%= (mistake.created_at - trial.started_at).round(2) %> seconds</p>
             </div>
           </div>
-          <% @homework = mistake.homeworks.find_by(student: student) %>
-          <% if student_signed_in? %>
-            <div class="mistake-student-box">
-              <div class="mistake-label">
-                Student Comment
-              </div>
-              <div style="margin-top: 18px;">
-                <%= simple_form_for @homework, remote: true do |form| %>
-                    <%= form.input :comment, class: 'comment-box', label: false %>
-                    <%= button_tag "", style: 'display:none' %>
-                <% end %>
-              </div>
-            </div>
-            <div class="teacher-comment-form" style="height:154px; margin-bottom: 15px;">
-              <div class="mistake-label">
-                Teacher Feedback
-              </div>
-              <div class="content" style="padding-top:20px;">
-                <% if @homework.completed %>
-                  <i class="fas fa-check-circle" style="color: green;"></i>
-                <% else %>
-                  Awaiting approval
-                <% end %>
-                <%= @homework.teacher_feedback %>
-              </div>
-            </div>
-          <% elsif teacher_signed_in? %>
-            <div class="student-comment">
-              <div class="mistake-label">
-                Student Comment
-              </div>
-              <div class="student-comment-content">
-                <%= @homework.comment %>
-              </div>
-            </div>
-
-            <div class="teacher-comment-form">
-              <div class="mistake-label" style="margin-bottom: 15px;">
-                Teacher Feedback
-              </div>
-              <%= simple_form_for @homework, remote: true do |form| %>
-                <%= form.input :completed %>
-                <%= form.input :teacher_feedback, label: false %>
-                <%= button_tag "", style: 'display:none' %>
-              <% end %>
-            </div>
-          <% end %>
         </div>
       <% end %>
     <% end %>
