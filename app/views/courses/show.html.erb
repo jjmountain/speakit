@@ -41,13 +41,16 @@
               <div class="course-show-row-item course-show-row-action">
                 <%= simple_form_for [l, Attendance.new] do |f| %>
                 <%= button_tag type: :submit, class: "btn-2" do %>
-                <i class="fas fa-arrow-right"></i>
+                Attend
                 <% end %>
                 <% end %>
               </div>
+              <div class="course-show-row-item course-show-row-action">
+                <%= link_to "See Homework", lesson_homeworks_path(l) %>
+              </div>
               <% elsif current_teacher && l.completed == false %>
               <div class="course-show-row-action"><%= link_to '<i class="fas fa-arrow-right"></i>'.html_safe,
-                lesson_path(l) %></div>
+                lesson_homeworks_path(l) %></div>
               <% else %>
               <div class="course-show-row-action"></div>
               <% end %>

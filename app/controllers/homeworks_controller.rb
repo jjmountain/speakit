@@ -1,5 +1,12 @@
 class HomeworksController < ApplicationController
 
+  def index
+    @lesson = Lesson.find(params[:lesson_id])
+    @course = Course.find(@lesson.course_id)
+    @attendances = Attendance.where(lesson_id: @lesson.id)
+    @time_trials = TimeTrial.where(lesson_id: @lesson.id)
+  end
+
   def update
     @homework = Homework.find(params[:id])
     @homework.update(homework_params)

@@ -1,36 +1,22 @@
 <div class="banner">
-  <div class="row">
-  <h2>the complete solution for teaching speaking skills</h2>
+  <div class="row" style="padding: 0 20px">
+  <h2>Capture classroom conversations with ease</h2>
 
-  <p><%= image_tag "check1.png", alt: "check_mark", width: 25 %> Improve student fluency through improvised timed conversations</p>
-  <p><%= image_tag "check1.png", alt: "check_mark", width: 25 %> Give real-time feedback on student mistakes</p>
-  <p><%= image_tag "check1.png", alt: "check_mark", width: 25 %> Capture and save audio for reflective homework assignments</p>
-  <h3><%= image_tag "arrow1.png", alt: "arrow", width: 40, height:45 %> <%= link_to "Get Started", new_teacher_registration_path %></h3>
+  <p>Improve student fluency through improvised timed conversations</p>
+  <p>Give real-time feedback on student mistakes</p>
+  <p>Capture and save audio for reflective homework assignments</p>
   </div>
 </div>
 
 
 <div class="container1">
 
-  <h2 class="landing_page">How It Works</h2>
-
-<div class="land_card col-sm-3">
-<%= image_tag "pick_two.png", alt: "pick two students", width: 220 %>
-<p>Speakit chooses two students at random to talk in front of the class</p>
-</div>
-<div class="land_card col-sm-3">
-<%= image_tag "smartphone.png", alt: "talk", width: 220 %>
-<p>One student uses their smartphone to record the conversation and uploads it to Speakit Live</p>
-</div>
-<div class="land_card col-sm-3">
-<%= image_tag "teacher_laptop.png", alt: "teacher", width: 220 %>
-<p>During the conversation, the teacher listens and logs mistakes using their keyboard</p>
-</div>
-
-<div class="land_card col-sm-3">
-<%= image_tag "idea.png", alt: "idea", width: 220 %>
-<p>Students can listen back to conversations and fix their mistakes for homework</p>
-</div>
-
+  <h2 class="landing_page">Enter your email to receive updates</h2>
+<div class="container2">
+  <%= simple_form_for(@interested_user) do |f| %>
+    <%= f.input :email, as: :email %>
+    <%= f.submit "Register your interest", class: "btn btn-primary" %>
+  <% end %>
+  </div>
 </div>
 
